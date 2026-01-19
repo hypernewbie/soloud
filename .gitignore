@@ -6,6 +6,7 @@ _UpgradeReport_Files/
 *.old
 *.filters
 build/
+build_ninja/
 *.aux
 *.out
 *.gz
@@ -35,3 +36,4 @@ scripts/soloud_codegen.py
 glue/rpgmaker_soloud.rb
 *.lastcodeanalysissucceeded
 *.bak
+GEMINI.md

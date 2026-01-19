@@ -28,6 +28,8 @@ set(SOLOUD_INCLUDE_DIRS "")
 if(SOLOUD_BACKEND_MINIAUDIO)
     file(GLOB_RECURSE SRC "src/backend/miniaudio/*.cpp" "src/backend/miniaudio/*.c")
     list(APPEND SOLOUD_BACKEND_SOURCES ${SRC})
+    list(APPEND SOLOUD_BACKEND_SOURCES "miniaudio/miniaudio.c")
+    list(APPEND SOLOUD_INCLUDE_DIRS "miniaudio")
     list(APPEND SOLOUD_DEFINES "WITH_MINIAUDIO")
 endif()
 
@@ -67,6 +69,11 @@ target_link_libraries(soloud PRIVATE ${SOLOUD_LIBRARIES})
 
 if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
     target_link_libraries(soloud PRIVATE pthread dl)
+endif()
+
+# Suppress multi-character constant warnings (user choice)
+if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+    target_compile_options(soloud PRIVATE -Wno-multichar)
 endif()
 
 # Compiler flags for libc++ if user wants (handled via env usually, but we can verify)

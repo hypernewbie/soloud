@@ -7,7 +7,7 @@ The aim is to preserve the API but keep it minimum level of "maintained enough" 
 Planned Changes include:
 [Y] CMake 4 build
 [Y] Simplify backends to null and miniaudio only
-[ ] Update to latest miniaudio
+[Y] Update to latest miniaudio
 [ ] Unit tests + CI, hopefully
 
 Vsol is work-in-progress.
@@ -39,6 +39,17 @@ mkdir build
 cd build
 cmake ..
 cmake --build .
+```
+
+### Using Ninja (Optional, Recommended for Linux/Mac)
+
+If you have [Ninja](https://ninja-build.org/) installed, you can generate Ninja build files for faster builds:
+
+```bash
+mkdir build
+cd build
+cmake -G Ninja ..
+ninja
 ```
 
 ### Building with Clang and libc++
