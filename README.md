@@ -8,7 +8,7 @@ Planned Changes include:
 [Y] CMake 4 build
 [Y] Simplify backends to null and miniaudio only
 [Y] Update to latest miniaudio
-[ ] Unit tests + CI, hopefully
+[Y] Unit tests + CI, hopefully
 
 Vsol is work-in-progress.
 
@@ -70,7 +70,8 @@ cmake --build build
 
 You can enable/disable specific backends or features using standard CMake options:
 
-- `-DSOLOUD_BACKEND_ALSA=ON/OFF` (Default: ON)
-- `-DSOLOUD_BACKEND_SDL2=ON/OFF` (Default: OFF)
-- `-DSOLOUD_BACKEND_OSS=ON/OFF` (Default: ON)
+- `-DSOLOUD_BACKEND_MINIAUDIO=ON/OFF` (Default: ON)
+- `-DSOLOUD_BACKEND_NULL=ON/OFF` (Default: ON)
+- `-DSOLOUD_BACKEND_NOSOUND=ON/OFF` (Default: ON)
 - `-DSOLOUD_BUILD_DEMOS=ON/OFF` (Default: OFF)
+- `-DSOLOUD_BUILD_TESTS=ON/OFF` (Default: OFF)

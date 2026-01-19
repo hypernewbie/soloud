@@ -9,6 +9,7 @@ option(SOLOUD_BACKEND_NOSOUND "Include NoSound backend" ON)
 
 option(SOLOUD_BUILD_C_API "Build C API" ON)
 option(SOLOUD_BUILD_DEMOS "Build Demos" OFF)
+option(SOLOUD_BUILD_TESTS "Build Tests" OFF)
 
 # --- Sources ---
 # Core sources
@@ -102,4 +103,13 @@ install(EXPORT SoLoudTargets
 if(SOLOUD_BUILD_DEMOS)
     add_executable(simplest demos/simplest/main.cpp)
     target_link_libraries(simplest PRIVATE soloud)
+endif()
+
+# --- Tests ---
+if(SOLOUD_BUILD_TESTS)
+    enable_testing()
+    add_executable(test_soloud tests/test_main.cpp)
+    target_include_directories(test_soloud PRIVATE tests include)
+    target_link_libraries(test_soloud PRIVATE soloud)
+    add_test(NAME test_soloud COMMAND test_soloud)
 endif()
