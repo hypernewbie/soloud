@@ -1,16 +1,18 @@
 Vsol - AI Slop SoLoud Fork
 ======
 
-VsoLoud is a (friendly) fork of Soloud, with vibe-coded "creature comfort" type modernisations.
-The aim is to preserve the API but keep it minimum level of "maintained enough" via AI coding + software engineer review.
+VsoLoud is an utterly YOLO (friendly) fork of Soloud, with vibe-coded modernisations.
+The aim is to preserve the API but keep it minimum level of "maintained enough" via AI coding.
 
-Changes include:
+Planned Changes include:
 * CMake 4 build
 * Simplify backends to null and miniaudio only
 * Update to latest miniaudio
 * Unit tests + CI, hopefully
 
-> WARNING: VSoLoud contains vibe coded AI changes. Read or use at your own risk of sanity.
+Vsol is work-in-progress.
+
+> WARNING: VSoLoud contains vibe coded AI changes, albeit with professional software engineer review. Read or use at your own risk of sanity.
 
 Original SoLoud Description
 -------------------
