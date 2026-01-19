@@ -6,11 +6,11 @@ Vsol - AI Slop SoLoud Fork
 VsoLoud is an utterly YOLO (friendly) fork of Soloud, with vibe-coded modernisations.
 The aim is to preserve the API but keep it minimum level of "maintained enough" via AI coding.
 
-Planned Changes include:
-[Y] CMake 4 build
-[Y] Simplify backends to null and miniaudio only
-[Y] Update to latest miniaudio
-[Y] Unit tests + CI, hopefully
+Changes:
+ * CMake 4 build
+ * Simplify backends to null and miniaudio only
+ * Update to latest miniaudio
+ * Unit tests + CI, hopefully
 
 Vsol is work-in-progress.
 
