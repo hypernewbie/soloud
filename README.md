@@ -1,6 +1,8 @@
 Vsol - AI Slop SoLoud Fork
 ======
 
+[![build](https://github.com/hypernewbie/soloud/actions/workflows/build.yml/badge.svg)](https://github.com/hypernewbie/soloud/actions/workflows/build.yml)
+
 VsoLoud is an utterly YOLO (friendly) fork of Soloud, with vibe-coded modernisations.
 The aim is to preserve the API but keep it minimum level of "maintained enough" via AI coding.
 
