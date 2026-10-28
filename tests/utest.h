@@ -143,6 +143,29 @@ typedef uint32_t utest_uint32_t;
 
 #if defined(_WINDOWS_) || defined(_WINDOWS_H)
 typedef LARGE_INTEGER utest_large_integer;
+#elif defined(_MSC_VER)
+// [UAA] - START - use the Windows SDK's own types and declarations
+// The MSVC runtime headers declare QueryPerformanceCounter and
+// QueryPerformanceFrequency in <profileapi.h>, and <windows.h> has pulled
+// <profileapi.h> in since Windows SDK 10.0.22621.  Those declarations use
+// the SDK's LARGE_INTEGER, so the hand-rolled declarations further down
+// conflict with them once <windows.h> is included later in the same
+// translation unit:
+//
+//   profileapi.h(34,1): error: conflicting types for 'QueryPerformanceCounter'
+//   profileapi.h(41,1): error: conflicting types for 'QueryPerformanceFrequency'
+//
+// The layouts of the two types match, but they are distinct types, so the
+// redeclaration is rejected.  Including <windows.h> here gives utest.h the
+// SDK's LARGE_INTEGER and the SDK's declarations, which agree with each
+// other and with any later <windows.h>.  <windows.h> is the only Windows SDK
+// header that can be included on its own: <winnt.h> and <minwindef.h> need
+// the _AMD64_ macro, which only <windows.h> defines, and clang-cl does not
+// predefine it.  _MSC_VER covers MSVC and clang-cl; MinGW keeps the old
+// declarations, which is where they are still needed.
+#include <windows.h>
+typedef LARGE_INTEGER utest_large_integer;
+// [UAA] - END
 #else
 // use old QueryPerformanceCounter definitions (not sure is this needed in some
 // edge cases or not) on Win7 with VS2015 these extern declaration cause "second
